@@ -6,3 +6,14 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Ignore raw image folders
+التسويق والإعلام الرقمي/
+التصميمات التعليمية والأكاديمية/
+الهوية المؤسسية والمطبوعات الإدارية/
+
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.gif
