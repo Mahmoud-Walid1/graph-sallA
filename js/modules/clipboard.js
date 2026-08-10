@@ -21,8 +21,8 @@ ${service.time}
 ملاحظة المهمة:
 ${service.note}`;
 
-  // Rich HTML representation for Salla editor (Bold headings with colored background pills)
-  const headerStyle = 'background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 4px; font-weight: bold; font-size: 1.05em; display: inline-block; margin-bottom: 4px;';
+  // Rich HTML representation for Salla editor (Bold headings with store teal background pills)
+  const headerStyle = 'background-color: #e0f7fa; color: #0f766e; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: inline-block; margin-bottom: 4px;';
   
   const htmlText = 
 `<div dir="rtl" style="font-family: Cairo, sans-serif; line-height: 1.6;">
