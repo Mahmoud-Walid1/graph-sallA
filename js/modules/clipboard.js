@@ -21,25 +21,27 @@ ${service.time}
 ملاحظة المهمة:
 ${service.note}`;
 
-  // Rich HTML representation for Salla editor (Bold headings with store teal background pills)
+  // Rich HTML representation for Salla editor
   const headerStyle = 'background-color: #e0f7fa; color: #0f766e; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: inline-block; margin-bottom: 4px;';
+  const noteHeaderStyle = 'background-color: #fef08a; color: #000000; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: inline-block; margin-bottom: 4px;';
+  const contentStyle = 'color: #000000; font-size: 1em; margin: 4px 0 0 0; background: none; font-weight: normal;';
   
   const htmlText = 
 `<div dir="rtl" style="font-family: Cairo, sans-serif; line-height: 1.6;">
   <p><span style="${headerStyle}">وصف المنتج:</span></p>
-  <p>${service.description}</p>
+  <p style="${contentStyle}">${service.description}</p>
   <br>
   <p><span style="${headerStyle}">البيانات المطلوبة:</span></p>
-  <p>${service.requirements}</p>
+  <p style="${contentStyle}">${service.requirements}</p>
   <br>
   <p><span style="${headerStyle}">الملفات تسلم بصيغة:</span></p>
-  <p>${service.format}</p>
+  <p style="${contentStyle}">${service.format}</p>
   <br>
   <p><span style="${headerStyle}">مدة التنفيذ:</span></p>
-  <p>${service.time}</p>
+  <p style="${contentStyle}">${service.time}</p>
   <br>
-  <p><span style="${headerStyle}">ملاحظة المهمة:</span></p>
-  <p>${service.note}</p>
+  <p><span style="${noteHeaderStyle}">ملاحظة المهمة:</span></p>
+  <p style="${contentStyle}">${service.note}</p>
 </div>`;
 
   const onCopySuccess = () => {
