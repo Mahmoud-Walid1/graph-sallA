@@ -30,16 +30,16 @@
 ## 🛠️ أدوار الملفات التفصيلية (Role of Every File)
 
 ### 1. [index.html](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/index.html)
-- يحتوي على الهيكل الأساسي للواجهة، الهيدر السينمائي، أزرار التبديل بين الأقسام الرئيسية والفرعية، شريط البحث المباشر، وحاوية البطاقات.
+- يحتوي على الهيكل الأساسي للواجهة، الهيدر السينمائي، شريط التحكم والعداد العلوى للخدمات المكتملة وزر المسح الكلي، أزرار التبديل وشريط البحث المباشر وحاوية البطاقات.
 
 ### 2. [css/variables.css](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/css/variables.css)
-- يعرّف الألوان (HSL Palette), الخطوط (Google Fonts - Outfit & Cairo), وتأثيرات الـ Glassmorphism وDark Theme.
+- يعرّف الألوان (HSL Palette), الخطوط, تأثيرات Glassmorphism ومتغيرات حالة البطاقات المأخوذة (`--bg-card-taken`, `--border-taken`).
 
 ### 3. [css/layout.css](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/css/layout.css)
 - مسؤول عن تخطيط الشاشة Responsive Grid، تباعد الأقسام، الهيدر والفوتر والـ Flex containers.
 
 ### 4. [css/components.css](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/css/components.css)
-- تنسيق وتصميم بطاقات الخدمات (Service Cards)، الشارات (Badges)، الأزرار (Buttons)، التنبيه العائم (Toast Notification) وشريط البحث.
+- تنسيق وتصميم بطاقات الخدمات (Service Cards)، الشارات (Badges)، البطاقات المعلمة كـ "مأخوذة" (`.card.taken`), أزرار التحديد والنسخ وشريط أدوات العداد وزر المسح.
 
 ### 5. [js/data/academic.js](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/js/data/academic.js)
 - يحتوي على مصفوفة الخدمات التفصيلية لقسم "التصميمات التعليمية والأكاديمية" بجميع الفئات الفرعية والأسعار والأوصاف المعتمدة.
@@ -54,13 +54,13 @@
 - يربط ويجمع مصفوفات البيانات من كافة الأقسام في كائن واحد متاح للكتالوج.
 
 ### 9. [js/modules/render.js](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/js/modules/render.js)
-- يحتوي على الدوال التخصيصية لبناء HTML الخاص بكل بطاقة خدمة وشارات السعر والملفات المسلمة ومدة التنفيذ والوصف، وإعادة الرسم الحركي.
+- ينشئ ويحدث بناء HTML للبطاقات مع تطبيق الترتيب المعتمد للبيانات، إضافة شارات `✅ تم أخذ الوصف` وإبراز المظهر الأخضر الشفاف للخدمات المنجزة.
 
 ### 10. [js/modules/filter.js](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/js/modules/filter.js)
 - مسؤول عن المنطق التفاعلي لتصفية الخدمات حسب القسم الرئيسي أو الفرعي وعملية البحث النصي السريع الحساس للكلمات.
 
 ### 11. [js/modules/clipboard.js](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/js/modules/clipboard.js)
-- ينفذ عملية نسخ النص الصافي لوصف الخدمة إلى الحافظة (Clipboard) مستثنياً السعر، ويعرض تنبيه Toast جذاب بالنسخ.
+- ينفذ دالة `copyServiceDescription` باستخدام `HTML Clipboard API` (إنشاء كائن مزدوج `text/html` + `text/plain`) لنسخ النصوص بعناوين عريضة وخلفيات ملونة جاهزة لمحرر متجر "سلة"، مع تعليم البطاقة كـ "مأخوذة" تلقائياً.
 
 ### 12. [js/app.js](file:///c:/Users/Mahmoud/Downloads/قسم%20تصميم%20الجرافيك/js/app.js)
-- ملف التهيئة الذي يربط وحدات التطبيق ويبدأ استماع الأحداث (EventListeners) عند التحميل.
+- النقطة المركزية لتهيئة التطبيق وإدارة حالة الخدمات المأخوذة في الـ `localStorage` ودوال `toggleCardTaken` و `clearAllTaken` وتحديث العداد المباشر.

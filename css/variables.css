@@ -27,4 +27,10 @@
 
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Taken / Completed State Tokens */
+  --bg-card-taken: rgba(16, 185, 129, 0.08);
+  --bg-card-taken-hover: rgba(16, 185, 129, 0.15);
+  --border-taken: rgba(16, 185, 129, 0.4);
+  --shadow-taken: 0 8px 32px 0 rgba(16, 185, 129, 0.15);
 }

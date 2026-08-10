@@ -189,9 +189,15 @@
   margin-top: 10px;
 }
 
-/* Copy Button */
+/* Copy Button & Action Buttons */
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 .copy-btn {
-  width: 100%;
+  flex: 1;
   padding: 10px;
   background: var(--bg-secondary);
   border: 1px solid var(--glass-border);
@@ -211,6 +217,120 @@
   background: var(--accent-primary);
   border-color: var(--accent-primary);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Card Taken / Completed State */
+.card.taken {
+  background: var(--bg-card-taken);
+  border-color: var(--border-taken);
+  box-shadow: var(--shadow-taken);
+  position: relative;
+}
+
+.card.taken::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent-emerald);
+}
+
+.badge-taken {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toggle-taken-btn {
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toggle-taken-btn:hover {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: var(--border-taken);
+}
+
+.card.taken .toggle-taken-btn {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-color: var(--border-taken);
+}
+
+.card.taken .copy-btn {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: var(--border-taken);
+  color: #ecfdf5;
+}
+
+.card.taken .copy-btn:hover {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
+
+/* Toolbar Control Row */
+.toolbar-controls {
+  max-width: 600px;
+  margin: -15px auto 25px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.taken-counter {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.taken-counter span {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.reset-btn {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reset-btn:hover {
+  background: #ef4444;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
 /* Toast Notification */

@@ -33,8 +33,12 @@ window.renderServices = function(servicesToRender) {
     `;
 
     items.forEach(service => {
+      const isTaken = typeof window.isServiceTaken === 'function' && window.isServiceTaken(service.id);
+      const takenClass = isTaken ? 'taken' : '';
+      const toggleLabel = isTaken ? '☑ تم الأخذ' : '☐ تحديد كتم';
+
       html += `
-        <div class="card" id="card-${service.id}">
+        <div class="card ${takenClass}" id="card-${service.id}">
           <div>
             <div class="card-header">
               <h3 class="card-title">${service.title}</h3>
@@ -42,6 +46,7 @@ window.renderServices = function(servicesToRender) {
             </div>
 
             <div class="card-badges">
+              ${isTaken ? '<span class="badge badge-taken">✅ تم أخذ الوصف</span>' : ''}
               <span class="badge badge-time">⚡ ${service.time}</span>
               <span class="badge badge-format">📁 ${service.format}</span>
             </div>
@@ -57,19 +62,37 @@ window.renderServices = function(servicesToRender) {
                 <p>${service.requirements}</p>
               </div>
 
+              <div class="card-body-item">
+                <span class="card-body-label">الملفات تسلم بصيغة:</span>
+                <p>${service.format}</p>
+              </div>
+
+              <div class="card-body-item">
+                <span class="card-body-label">مدة التنفيذ:</span>
+                <p>${service.time}</p>
+              </div>
+
               <div class="card-note">
-                <strong>ملاحظة المقاسات:</strong> ${service.note}
+                <strong>ملاحظة المهمة:</strong> ${service.note}
               </div>
             </div>
           </div>
 
-          <button class="copy-btn" onclick="window.copyServiceDescription('${service.id}')">
-            📋 نسخ الوصف للمتجر
-          </button>
+          <div class="card-actions">
+            <button class="toggle-taken-btn" onclick="window.toggleCardTaken('${service.id}')" title="تحديد/إلغاء تحديد الخدمة">
+              ${toggleLabel}
+            </button>
+            <button class="copy-btn" onclick="window.copyServiceDescription('${service.id}')">
+              📋 نسخ الوصف لـ سلة
+            </button>
+          </div>
         </div>
       `;
     });
   }
 
   container.innerHTML = html;
+  if (typeof window.updateTakenCounter === 'function') {
+    window.updateTakenCounter();
+  }
 };
